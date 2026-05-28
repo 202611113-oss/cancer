@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import joblib
-
+from sklearn.cluster import KMeans
 # 모델과 스케일러 불러오기
 model = joblib.load("lung_model.pkl")
 scaler = joblib.load("lung_scaler.pkl")
