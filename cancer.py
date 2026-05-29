@@ -1,3 +1,19 @@
+import matplotlib.pyplot as plt
+from matplotlib import font_manager, rc
+import os
+
+# --- 한글 폰트 설정 시작 ---
+# 나눔 폰트 경로 (Streamlit Cloud의 기본 설치 경로)
+font_path = '/usr/share/fonts/truetype/nanum/NanumGothic.ttf'
+
+if os.path.exists(font_path):
+    # 경로에 폰트가 있으면 설정 적용
+    font_prop = font_manager.FontProperties(fname=font_path)
+    rc('font', family=font_prop.get_name())
+    plt.rcParams['axes.unicode_minus'] = False # 마이너스 기호 깨짐 방지
+else:
+    # 로컬(윈도우) 환경 등을 위한 예외 처리
+    plt.rc('font', family='Malgun Gothic')
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
